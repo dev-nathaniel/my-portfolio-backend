@@ -1,10 +1,12 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Added CORS middleware
 require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors()); // Enabled CORS for all routes
 
 // The transporter auth does not necessarily have to be the same as the 'from' in mailOptions.
   // However, in this case, we are using Gmail as the service, and Gmail requires the 'from' field to match the authenticated user.
