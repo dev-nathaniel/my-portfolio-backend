@@ -20,7 +20,7 @@ app.use(cors()); // Enabled CORS for all routes
   });
 
 app.post('/sendEmail', (req, res) => {
-  const { service, budget, deliveryPeriod, name, company, email, projectBrief } = req.body;
+  const { service, budget, period, name, company, email, projectBrief } = req.body;
 
   
 
