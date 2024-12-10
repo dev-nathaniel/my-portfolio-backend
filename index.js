@@ -20,7 +20,7 @@ app.use(cors()); // Enabled CORS for all routes
   });
 
 app.post('/sendEmail', (req, res) => {
-  const { service, budget, period, name, company, email, projectBrief } = req.body;
+  const { service, budget, period, name, company, email, details } = req.body;
 
   
 
@@ -43,7 +43,7 @@ app.post('/sendEmail', (req, res) => {
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Budget:</strong> ${budget}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Delivery Period:</strong> ${period}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${email}</p>
-          <p style="font-size: 16px; margin-bottom: 10px;"><strong>Project Brief:</strong> ${projectBrief}</p>
+          <p style="font-size: 16px; margin-bottom: 10px;"><strong>Project Brief:</strong> ${details}</p>
         </div>
       </div>
     `
