@@ -41,7 +41,7 @@ app.post('/sendEmail', (req, res) => {
           <h2 style="color: #333; font-weight: bold; margin-top: 0;">Job Details</h2>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Service:</strong> ${service}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Budget:</strong> ${budget}</p>
-          <p style="font-size: 16px; margin-bottom: 10px;"><strong>Delivery Period:</strong> ${deliveryPeriod}</p>
+          <p style="font-size: 16px; margin-bottom: 10px;"><strong>Delivery Period:</strong> ${period}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${email}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Project Brief:</strong> ${projectBrief}</p>
         </div>
