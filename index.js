@@ -9,7 +9,6 @@ app.use(bodyParser.json());
 // The transporter auth does not necessarily have to be the same as the 'from' in mailOptions.
   // However, in this case, we are using Gmail as the service, and Gmail requires the 'from' field to match the authenticated user.
   // This is a security feature to prevent email spoofing.
-  console.log(process.env.THING)
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
