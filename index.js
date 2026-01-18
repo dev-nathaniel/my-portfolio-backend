@@ -19,6 +19,127 @@ app.use(cors()); // Enabled CORS for all routes
     }
   });
 
+app.post('/valentine', (req, res) => {
+
+  let mailOptions = {
+    from: 'adebayoolowofoyeku@gmail.com',
+    to: 'adebayoolowofoyeku@gmail.com',
+    replyTo: 'adebayoolowofoyeku@gmail.com',
+    subject: 'VALENTINES',
+    headers: {
+      'Importance': 'high',
+      'X-Priority': '1'
+    },
+    html: `
+    <!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe6ec, #fff);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-wrapper {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+}
+
+.email-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e6396f;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.hurray {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e6396f;
+  margin: 18px 0;
+}
+
+.celebrate {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555555;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      <div class="heart">💖</div>
+
+  <div class="title">
+    Valentine Accepted
+  </div>
+
+  <div class="message">
+    Kiara has accepted to be your Valentine.
+  </div>
+
+  <div class="hurray">
+    Hurray! 🎉
+  </div>
+
+  <div class="celebrate">
+    Celebrate your love together on the 14th of February ❤️
+  </div>
+</div>
+
+  </div>
+</body>
+</html>
+`
+}
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error)
+      res.status(500).send('Error sending email')
+      } else {
+      console.log('Email sent: ' + info.response);
+      res.status(200).send('Email sent successfully');
+    }
+  });
+})
+
 app.post('/sendEmail', (req, res) => {
   const { service, budget, period, name, company, email, details } = req.body;
 
